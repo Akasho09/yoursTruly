@@ -28,13 +28,22 @@ export type StartBlock = {
   begin: string;
 };
 
+export type AudioBlock = {
+  type: "audio";
+  src: string;           // /audio/song.mp3
+  filetype?: string;     // optional
+  cover? : string
+};
+
+
 // 2️⃣ Union type for all blocks
 export type ContentBlock =
   | ImageBlock
   | TextBlock
   | MemoryBlock
   | PoemBlock
-  | StartBlock;
+  | StartBlock
+  | AudioBlock
 
 // 3️⃣ Reason type
 export type Reason = {
@@ -69,10 +78,6 @@ export const reasons: Reason[] = [
       { type: "image", src: "/rv2.jpeg", alt: "You" },
       { type: "start", begin: "LIKE I [SAID U OR NONE]" },
       { type: "image", src: "/image.png", alt: "Memory" },
-      {
-        type: "poem",
-        lines: ["There you shine", "Here I light", "Not you then who?"],
-      },
     ],
   },
   {
@@ -90,9 +95,8 @@ export const reasons: Reason[] = [
       },
     ],
   },
-
   {
-    date: "2024-12-12",
+    date: "2024-12-11",
     content: [
       { type: "text", value: "N then there is this one photo of yours." },
       { type: "image", src: "/things.png", alt: "You" },
@@ -100,9 +104,30 @@ export const reasons: Reason[] = [
         type: "poem",
         lines: [
           "U r 24 hours with me but at 4am im also with u. "
-        ],
+        ]
       },
     ],
   },
-
+  {
+    date: "2024-12-12",
+    content: [
+      { type: "image", src: "/hand.png", alt: "You" },
+      {
+        type : "poem" ,
+        lines : [
+          "Akha kara band",
+          "Te sundi awaz" ,
+          "Gal meri man thorha kar le lihaz",
+          "Je Aan kite cherhe mere dil vale saaz"
+        ]
+      },
+      { type: "image", src: "/hkirat.jpeg", alt: "You" },
+      {
+        type: "audio",
+        src: "/audio/kirat.mp3",
+        cover : "akash.png"
+      },
+    ],
+  },
+  
 ];

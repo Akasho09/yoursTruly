@@ -1,33 +1,96 @@
 import Image from "next/image";
-import Home from "./client";
 import { reasons } from "./reasons";
+import AudioPlayer from "./AudioPlayer";
+import Home from "./client";
 
 export default function ServerCompo() {
   return (
-    <div className="flex flex-col items-center justify-center w-full space-y-10 overflow-y-auto pr-2 bg-white">
+    <div
+      className="
+        relative 
+        flex flex-col items-center 
+        w-full space-y-16 
+        py-20 
+        bg-gradient-to-br from-pink-50 via-rose-100 to-rose-200
+        animate-fadeUpMagic
+        overflow-x-hidden
+      "
+    >
+      {/* Background Twinkles */}
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={i}
+          className="twinkle"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            fontSize: `${8 + Math.random() * 10}px`,
+            animationDelay: `${Math.random() * 3}s`,
+          }}
+        >
+          ✦
+        </div>
+      ))}
+
+      {/* Vignette overlay */}
+      <div className="vignette"></div>
+
       {reasons.map((reason, index) => (
         <div
           key={index}
-          className="max-w-4xl group bg-white/80 backdrop-blur-xl border border-pink-200 rounded-3xl p-5 shadow-xl hover:shadow-pink-300/50 transition duration-500"
+          className="
+            max-w-4xl w-full 
+            relative
+            bg-white/70 backdrop-blur-xl
+            border border-pink-200 
+            rounded-3xl 
+            p-10 
+            shadow-xl 
+            hover:shadow-rose-300/60
+            transition-all duration-500
+            hover:-translate-y-1
+            animate-fadeUpMagic
+          "
         >
-          <p className="text-xs text-pink-500 font-semibold mb-3 text-center tracking-widest">
+          {/* Decorative floating hearts per card */}
+          {Array.from({ length: 4 }).map((_, h) => (
+            <div
+              key={h}
+              className="floating-heart opacity-70"
+              style={{
+                left: `${20 + Math.random() * 60}%`,
+                animationDelay: `${Math.random()}s`,
+                animationDuration: `${3 + Math.random() * 2}s`,
+              }}
+            >
+              💕
+            </div>
+          ))}
+
+          {/* Date */}
+          <p className="text-xs text-pink-600 font-bold mb-6 text-center tracking-[0.3em] uppercase">
             📅 {reason.date}
           </p>
 
+          {/* Content Blocks */}
           {reason.content.map((block, i) => {
             switch (block.type) {
               case "image":
                 return (
                   <div
                     key={i}
-                    className="overflow-hidden rounded-2xl mb-6 animate-fadeIn"
+                    className="
+                      overflow-hidden rounded-3xl 
+                      shadow-xl border border-rose-200 
+                      mb-10 animate-fadeUpMagic
+                    "
                   >
                     <Image
                       src={block.src}
                       alt={block.alt}
-                      width={800}
-                      height={600}
-                      className="rounded-2xl object-cover hover:scale-110 transition duration-700"
+                      width={900}
+                      height={700}
+                      className="rounded-3xl object-cover image-hover"
                     />
                   </div>
                 );
@@ -36,7 +99,10 @@ export default function ServerCompo() {
                 return (
                   <p
                     key={i}
-                    className="text-gray-700 font-semibold text-lg leading-relaxed mb-3 animate-typewriter"
+                    className="
+                      text-gray-700 font-semibold text-lg leading-relaxed 
+                      mb-4 px-3 animate-fadeUpMagic
+                    "
                   >
                     {block.value}
                   </p>
@@ -46,12 +112,17 @@ export default function ServerCompo() {
                 return (
                   <div
                     key={i}
-                    className="bg-gradient-to-br from-pink-100 to-rose-200 border border-pink-300 p-5 rounded-2xl shadow-lg my-6 animate-fadeIn"
+                    className="
+                      bg-gradient-to-br from-pink-100 to-rose-200 
+                      border border-pink-300 
+                      p-6 rounded-3xl shadow-xl 
+                      text-center my-8 animate-fadeUpMagic
+                    "
                   >
-                    <h3 className="text-pink-700 font-bold text-lg mb-2 text-center">
+                    <h3 className="text-pink-700 font-bold text-xl mb-2">
                       {block.date}
                     </h3>
-                    <p className="text-gray-700 text-center italic text-sm">
+                    <p className="text-gray-700 italic text-md">
                       {block.love}
                     </p>
                   </div>
@@ -61,10 +132,21 @@ export default function ServerCompo() {
                 return (
                   <div
                     key={i}
-                    className="bg-pink-50 border-l-4 border-pink-400 p-4 my-6 rounded-xl shadow-inner italic space-y-2 animate-fadeIn"
+                    className="
+                      bg-white/60 border border-pink-300 
+                      p-6 rounded-2xl shadow-inner 
+                      italic animate-fadeUpMagic
+                      my-8 space-y-1
+                    "
                   >
                     {block.lines.map((line, idx) => (
-                      <p key={idx} className="text-pink-700 text-center">
+                      <p
+                        key={idx}
+                        className="
+                          poem-shimmer text-center 
+                          font-medium tracking-wide 
+                        "
+                      >
                         {line}
                       </p>
                     ))}
@@ -75,17 +157,30 @@ export default function ServerCompo() {
                 return (
                   <div
                     key={i}
-                    className="relative bg-gradient-to-br from-pink-200 via-rose-200 to-red-200 
-                 border border-pink-300 rounded-3xl p-6 mb-8 shadow-2xl 
-                 animate-fadeIn text-center overflow-hidden"
+                    className="
+                      relative 
+                      bg-gradient-to-br from-pink-200 via-rose-200 to-red-200
+                      border border-pink-300 
+                      rounded-3xl 
+                      p-7 shadow-xl 
+                      text-center animate-fadeUpMagic 
+                      overflow-hidden mb-10
+                    "
                   >
-                    <div className="absolute inset-0 opacity-10 text-[120px] flex justify-center items-center select-none">
+                    <div className="absolute inset-0 opacity-10 text-[140px] flex justify-center items-center">
                       ❤️
                     </div>
 
-                    <p className="relative text-sm text-pink-700 italic">
+                    <p className="relative text-pink-800 font-semibold italic">
                       {block.begin}
                     </p>
+                  </div>
+                );
+
+              case "audio":
+                return (
+                  <div key={i} className="my-12 animate-fadeUpMagic">
+                    <AudioPlayer src={block.src} cover={block.cover} />
                   </div>
                 );
 
@@ -96,7 +191,7 @@ export default function ServerCompo() {
         </div>
       ))}
 
-      <Home />
+      <Home></Home>
     </div>
   );
 }
