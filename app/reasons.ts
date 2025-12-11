@@ -76,7 +76,7 @@ export const reasons: Reason[] = [
     date: "2024-12-08",
     content: [
       { type: "image", src: "/rv2.jpeg", alt: "You" },
-      { type: "start", begin: "LIKE I [SAID U OR NONE]" },
+      { type: "start", begin: "LIKE I SAID [ U OR NONE ]" },
       { type: "image", src: "/image.png", alt: "Memory" },
     ],
   },
@@ -106,12 +106,6 @@ export const reasons: Reason[] = [
           "U r 24 hours with me but at 4am im also with u. "
         ]
       },
-    ],
-  },
-  {
-    date: "2024-12-12",
-    content: [
-      { type: "image", src: "/hand.png", alt: "You" },
       {
         type : "poem" ,
         lines : [
@@ -121,12 +115,24 @@ export const reasons: Reason[] = [
           "Je Aan kite cherhe mere dil vale saaz"
         ]
       },
+      {
+        type: "audio",
+        src: "/audio/ap.mp3",
+        cover : "akash.png"
+      },
+    ],
+  },
+  {
+    date: "2024-12-12",
+    content: [
       { type: "image", src: "/hkirat.jpeg", alt: "You" },
       {
         type: "audio",
         src: "/audio/kirat.mp3",
         cover : "akash.png"
       },
+      { type: "image", src: "/hand.png", alt: "You" },
+
     ],
   },
   
