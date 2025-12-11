@@ -118,7 +118,7 @@ export const reasons: Reason[] = [
       {
         type: "audio",
         src: "/audio/ap.mp3",
-        cover : "akash.png"
+        cover : "song.jpeg"
       },
     ],
   },
@@ -129,10 +129,9 @@ export const reasons: Reason[] = [
       {
         type: "audio",
         src: "/audio/kirat.mp3",
-        cover : "akash.png"
+        cover : "song.jpeg"
       },
       { type: "image", src: "/hand.png", alt: "You" },
-
     ],
   },
   

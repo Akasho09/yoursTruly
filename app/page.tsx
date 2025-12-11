@@ -5,7 +5,7 @@ import Home from "./client";
 
 export default function ServerCompo() {
   return (
-    <div className="w-full flex flex-col items-center py-16 bg-black text-neutral-200">
+    <div className="w-full flex flex-col items-center pb-16 bg-black text-neutral-200">
       
       {reasons.map((reason, index) => (
         <div
@@ -108,7 +108,7 @@ export default function ServerCompo() {
         </div>
       ))}
 
-      <Home />
+      {/* <Home /> */}
     </div>
   );
 }
