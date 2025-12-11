@@ -1,4 +1,3 @@
-// ServerCompo.tsx (or wherever this component lives)
 import Image from "next/image";
 import Home from "./client";
 import { reasons } from "./reasons";

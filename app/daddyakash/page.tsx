@@ -1,3 +1,5 @@
+export const revalidate = 0;  // ⬅️ Disable caching completely
+
 import prisma from "@/lib/prisma";
 
 function formatToIST(date: Date) {
