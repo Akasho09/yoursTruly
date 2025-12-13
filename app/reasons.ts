@@ -134,5 +134,14 @@ export const reasons: Reason[] = [
       { type: "image", src: "/hand.png", alt: "You" },
     ],
   },
+  {
+    date: "2024-12-13",
+    content: [
+      { type: "start", begin: "PAIN" },      {
+        type: "poem",
+        lines: ["never have i ever", "Felt this much pain", "Not in this life fs!"],
+      },    
+    ],
+  },
   
 ];

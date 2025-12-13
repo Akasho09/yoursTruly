@@ -108,7 +108,7 @@ export default function ServerCompo() {
         </div>
       ))}
 
-      {/* <Home /> */}
+      <Home />
     </div>
   );
 }
